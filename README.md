@@ -52,4 +52,11 @@ The app displays tasks only for the logged-in user; cross-user task sharing is n
 Offline support is limited to tasks fetched during the current session; tasks are cached in memory and not persisted across app restarts.
 PDF export is basic and only includes task ID, title, description, and status.
 
+*Demo User*
+ Demo User 1
+    Mail ID: harilalthampy@gmail.com
+    Password: Harilal@123
+ Demo User 2
+    Mail ID: harilalgle@gmail.com
+    Password: Hari2002
 

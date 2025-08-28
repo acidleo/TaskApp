@@ -17,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isLoading = false;
+  bool _obscurePassword = true;
 
   @override
   void dispose() {
@@ -50,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
         );
       } else {
         //  Login failed → Go to ErrorPage
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => ErrorPage(message: errorMessage),
@@ -89,11 +90,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 15),
                 TextFormField(
                   controller: _passwordController,
-                  decoration: const InputDecoration(
+                  obscureText: _obscurePassword,
+                  decoration: InputDecoration(
                     labelText: 'Password',
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscurePassword
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscurePassword = !_obscurePassword;
+                        });
+                      },
+                    ),
                   ),
-                  obscureText: true,
                   validator:
                       (value) =>
                           value == null || value.isEmpty
