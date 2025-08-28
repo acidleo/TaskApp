@@ -46,7 +46,7 @@ class DetailScreen extends StatelessWidget {
                 child: Container(
                   height: screenHeight * 0.8,
                   width: double.infinity,
-                  color: const Color.fromARGB(255, 126, 176, 211),
+                  color: const Color.fromARGB(255, 190, 193, 196),
                   child: Stack(
                     children: [
                       Padding(
